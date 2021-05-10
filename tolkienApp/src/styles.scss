@@ -1,5 +1,6 @@
 
-@import "./styles/basic";
+// @import "./styles/basic";
+// @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 @keyframes flow {
   from { background-position: 0% 0%; }
@@ -27,8 +28,18 @@ body {
   animation: flow 60s ease-in-out infinite;
 }
 
+@media (max-width: 800px) {
+  body {
+    background-size: 300%;
+  }
+}
+
 h1, h2, h3, h4, h5, h6, a {
   font-family: 'Ringbearer', Verdana, Tahoma, sans-serif;
+}
+
+.page-section {
+  padding: 6rem 0;
 }
 
 #mainNav {
@@ -62,9 +73,10 @@ h1, h2, h3, h4, h5, h6, a {
 
 @media (min-width: 992px) {
   #mainNav {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     transition: padding-top 0.3s, padding-bottom 0.3s;
+    background-color: darkslategrey !important;
   }
   #mainNav .navbar-brand {
     font-size: 1.75em;
@@ -73,13 +85,21 @@ h1, h2, h3, h4, h5, h6, a {
   #mainNav .navbar-nav {
     margin-top: 0;
   }
+  #mainNav .navbar-nav > li.nav-item > a.nav-link {
+    color: goldenrod;
+    text-shadow: 3px 3px 5px black;
+  }
+
+  #mainNav .navbar-nav > li.nav-item > a.nav-link:hover {
+    color: gold;
+  }
   #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
-    color: #fff;
-    background: #1abc9c;
+    color: gold;
+    background: teal;
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link.active:active, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:focus, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
-    color: #fff;
-    background: #1abc9c;
+    color: gold;
+    background: teal;
   }
 
   #mainNav.navbar-shrink {
@@ -210,13 +230,35 @@ form .row:first-child .floating-label-form-group {
   border-top: 1px solid #e9ecef;
 }
 
+@keyframes walk-on {
+  from {
+   background-position-x: 0vw;
+  }
+  to {
+    background-position-x: -100vw;
+  }
+}
+
+@-webkit-keyframes walk-on {
+  from {
+   background-position-x: 0vw;
+  }
+  to {
+    background-position-x: -100vw;
+  }
+}
+
 .footer {
   padding-top: 5rem;
   padding-bottom: 5rem;
   background-image: url("./assets/media/footer.png");
   color: #fff;
+  animation: walk-on 30s linear infinite;
+  -webkit-animation: walk-on 30s linear infinite;
 }
 
 .copyright {
   background-color: black;
 }
+
+

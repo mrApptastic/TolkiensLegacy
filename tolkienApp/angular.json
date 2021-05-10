@@ -31,9 +31,18 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/mr-mr2/src/scss/mrStyle.scss",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/mr-mr2/src/assets/rectAngular.js",
+              "node_modules/mr-mr2/src/assets/captainCanvas.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/animejs/lib/anime.min.js",
+              "src/assets/scripts/scripts.js"
+            ]
           },
           "configurations": {
             "production": {
