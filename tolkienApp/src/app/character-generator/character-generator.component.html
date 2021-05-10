@@ -10,46 +10,48 @@
   <tbody>
     <tr>
       <td>Strength</td>
-      <td>{{character.stats.strength.norm}}</td>
-      <td>{{character.stats.strength.norm | stat}}</td>
+      <td>{{character.stats.strength.value}}</td>
+      <td>{{character.stats.strength.value | stat}}</td>
       <td></td>
     </tr>
     <tr>
-      <td>Strength</td>
-      <td>{{character.stats.agility.norm}}</td>
-      <td>{{character.stats.agility.norm | stat}}</td>
+      <td>Agility</td>
+      <td>{{character.stats.agility.value}}</td>
+      <td>{{character.stats.agility.value | stat}}</td>
       <td></td>
     </tr>
     <tr>
-      <td>Strength</td>
-      <td>{{character.stats.constitution.norm}}</td>
-      <td>{{character.stats.constitution.norm | stat}}</td>
+      <td>Constitution</td>
+      <td>{{character.stats.constitution.value}}</td>
+      <td>{{character.stats.constitution.value | stat}}</td>
       <td></td>
     </tr>
     <tr>
       <td>Intelligence</td>
-      <td>{{character.stats.intelligence.norm}}</td>
-      <td>{{character.stats.intelligence.norm | stat}}</td>
-      <td>{{character.stats.intelligence.norm | powerPoint}}</td>
+      <td>{{character.stats.intelligence.value}}</td>
+      <td>{{character.stats.intelligence.value | stat}}</td>
+      <td>{{character.stats.intelligence.value | powerPoint}}</td>
     </tr>
     <tr>
       <td>Intuition</td>
-      <td>{{character.stats.intuition.norm}}</td>
-      <td>{{character.stats.intuition.norm | stat}}</td>
-      <td>{{character.stats.intuition.norm | powerPoint}}</td>
+      <td>{{character.stats.intuition.value}}</td>
+      <td>{{character.stats.intuition.value | stat}}</td>
+      <td>{{character.stats.intuition.value | powerPoint}}</td>
     </tr>
     <tr>
       <td>Presence</td>
-      <td>{{character.stats.presence.norm}}</td>
-      <td>{{character.stats.presence.norm | stat}}</td>
+      <td>{{character.stats.presence.value}}</td>
+      <td>{{character.stats.presence.value | stat}}</td>
       <td></td>
     </tr>
     <tr>
       <td>Appearance</td>
-      <td>{{character.stats.appearance.norm}}</td>
+      <td>{{character.stats.appearance.value}}</td>
       <td></td>
       <td></td>
     </tr>
   </tbody>
 </table>
 <button (click)="generate()">Spank the monkey!</button>
+<br/>
+{{character | json}}

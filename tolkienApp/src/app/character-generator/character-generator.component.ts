@@ -20,13 +20,13 @@ export class CharacterGeneratorComponent implements OnInit {
     this.character = new Character();
     this.character.information = new CharacterInformation();
     this.character.stats = new CharacterStatSet();
-    this.character.stats.strength.norm = this.rollStat();
-    this.character.stats.agility.norm = this.rollStat();
-    this.character.stats.constitution.norm = this.rollStat();
-    this.character.stats.intelligence.norm = this.rollStat();
-    this.character.stats.intuition.norm = this.rollStat();
-    this.character.stats.presence.norm = this.rollStat();
-    this.character.stats.appearance.norm = this.rollStat();
+    this.character.stats.strength.value = this.rollStat();
+    this.character.stats.agility.value = this.rollStat();
+    this.character.stats.constitution.value = this.rollStat();
+    this.character.stats.intelligence.value = this.rollStat();
+    this.character.stats.intuition.value = this.rollStat();
+    this.character.stats.presence.value = this.rollStat();
+    this.character.stats.appearance.value = this.rollStat();
   }
 
   rollStat(): number {
