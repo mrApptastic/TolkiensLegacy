@@ -1,1 +1,55 @@
-<p>character-generator works!</p>
+<table *ngIf="character?.stats">
+  <thead>
+    <tr>
+      <th>Stat</th>
+      <th>Value</th>
+      <th>Bonus</th>
+      <th>Power Points</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Strength</td>
+      <td>{{character.stats.strength.norm}}</td>
+      <td>{{character.stats.strength.norm | stat}}</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Strength</td>
+      <td>{{character.stats.agility.norm}}</td>
+      <td>{{character.stats.agility.norm | stat}}</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Strength</td>
+      <td>{{character.stats.constitution.norm}}</td>
+      <td>{{character.stats.constitution.norm | stat}}</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Intelligence</td>
+      <td>{{character.stats.intelligence.norm}}</td>
+      <td>{{character.stats.intelligence.norm | stat}}</td>
+      <td>{{character.stats.intelligence.norm | powerPoint}}</td>
+    </tr>
+    <tr>
+      <td>Intuition</td>
+      <td>{{character.stats.intuition.norm}}</td>
+      <td>{{character.stats.intuition.norm | stat}}</td>
+      <td>{{character.stats.intuition.norm | powerPoint}}</td>
+    </tr>
+    <tr>
+      <td>Presence</td>
+      <td>{{character.stats.presence.norm}}</td>
+      <td>{{character.stats.presence.norm | stat}}</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Appearance</td>
+      <td>{{character.stats.appearance.norm}}</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+<button (click)="generate()">Spank the monkey!</button>

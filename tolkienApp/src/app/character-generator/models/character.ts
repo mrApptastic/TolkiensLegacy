@@ -1,15 +1,27 @@
+import { Stat, StatSet } from "./stat";
+
 export class Character {
+  information: CharacterInformation;
+  stats: CharacterStatSet;
+}
+
+export class CharacterInformation {
+  firstName: string;
+  lastName: string;
+  height: string;
+  width: string;
+}
+
+
+export class CharacterStatSet extends StatSet {
 
 }
 
-export class CharacterStat {
-  strength = new Stat { name: "Strength"; abbr: "St"; norm: 0 };
+
+
+export class CharacterStat extends Stat {
 
 }
 
-export class Stat {
-  name: string;
-  abbr: string;
-  norm: number;
 
-}
+
