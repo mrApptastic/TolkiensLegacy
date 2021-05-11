@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Character, CharacterInformation, CharacterStatSet } from './models/character';
 import { DiceService } from './services/dice.service';
+import { jsPDF } from 'jspdf';
 
 @Component({
   selector: 'app-character-generator',
@@ -36,6 +37,23 @@ export class CharacterGeneratorComponent implements OnInit {
     }
 
     return value;
+  }
+
+  download(): void {
+
+    // Default export is a4 paper, portrait, using millimeters for units
+    const doc = new jsPDF();
+
+    const name = this.character?.information?.firstName + " " + this.character?.information?.lastName;
+
+    doc.text("Strength " + this.character.stats.strength.value, 10, 10);
+    doc.text("Agility " + this.character.stats.agility.value, 10, 30);
+    doc.text("Constitution " + this.character.stats.constitution.value, 10, 50);
+    doc.text("Intelligence " + this.character.stats.intelligence.value, 10, 70);
+    doc.text("Intuition " + this.character.stats.intuition.value, 10, 90);
+    doc.text("Presence " + this.character.stats.presence.value, 10, 110);
+    doc.text("Appearance " + this.character.stats.appearance.value, 10, 130);
+    doc.save(name ? name : "Character" + ".pdf");
   }
 
 }
