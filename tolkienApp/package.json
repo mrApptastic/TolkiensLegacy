@@ -23,7 +23,7 @@
     "bootstrap": "4.6.0",
     "jquery": "3.5.1",
     "jspdf": "2.3.1",
-    "mr-mr2": "0.0.5",
+    "mr-mr2": "file:../../mrMr2/mrMr/dist/mr-mr2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
