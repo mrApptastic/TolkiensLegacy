@@ -3,12 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CharacterGeneratorModule } from './character-generator/character-generator.module';
+import { CharacterGeneratorModule } from './modules/character-generator/character-generator.module';
 import { MrMr2Module } from 'mr-mr2';
+import { RectAngularComponent } from './components/rect-angular/rect-angular.component';
+import { CaptainCanvasComponent } from './components/captain-canvas/captain-canvas.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RectAngularComponent,
+    CaptainCanvasComponent
   ],
   imports: [
     BrowserModule,

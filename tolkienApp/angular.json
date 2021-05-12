@@ -38,10 +38,7 @@
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/animejs/lib/anime.min.js",
-              "node_modules/jspdf/dist/jspdf.es.min.js",
-              "node_modules/mr-mr2/assets/rectAngular.js",
-              "node_modules/mr-mr2/assets/captainCanvas.js",
-              "src/assets/scripts/scripts.js"
+              "node_modules/jspdf/dist/jspdf.es.min.js"
             ]
           },
           "configurations": {
