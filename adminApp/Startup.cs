@@ -29,6 +29,17 @@ namespace admin_app
         {
             services.AddSignalR();
 
+            services. AddCors(c =>
+            {
+                c.AddPolicy(
+                name: "AllowOrigin",
+                builder =>{
+                    builder.AllowAnyOrigin()
+                            .AllowAnyMethod()
+                            .AllowAnyHeader();
+                });
+            });
+
             services.AddDbContext<ApplicationDbContext>(options =>
                  options.UseMySql(
                      Configuration.GetConnectionString("DefaultConnection")));
@@ -80,6 +91,8 @@ namespace admin_app
             });  
 
             app.UseRouting();
+
+            app.UseCors("AllowOrigin");
 
             app.UseAuthentication();
             app.UseIdentityServer();
