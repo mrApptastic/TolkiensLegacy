@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Console } from 'console';
 
 declare function rectAngular(elem, width, height, heading, colour, font): void;
 
