@@ -17,8 +17,8 @@ namespace admin_app.Data
             IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
         {
         }
-        public DbSet<BaseStat> Stats {get; set;}
-        public DbSet<Race> Races {get; set;}
+        public DbSet<BaseStat> MerpStats {get; set;}
+        public DbSet<Race> MerpRaces {get; set;}
     }
 }   
 
