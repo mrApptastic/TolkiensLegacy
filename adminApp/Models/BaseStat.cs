@@ -3,7 +3,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class BaseStat : BaseStatView
+public class BaseStat : StatView
    {  
        [Key]
        public int Id { get; set; }  
@@ -11,9 +11,11 @@ public class BaseStat : BaseStatView
        public bool EnabledInWeb { get; set; } 
    }  
 
-public class BaseStatView 
+public class StatView 
     {
         public Guid? EId { get; set; } 
         public string Name { get; set; }
+        public string Abbr { get; set; }
+        public int Value { get; set; }
        
     }
