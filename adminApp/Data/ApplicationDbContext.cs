@@ -18,6 +18,7 @@ namespace admin_app.Data
         {
         }
         public DbSet<BaseStat> MerpStats {get; set;}
+        public DbSet<StatSet> MerpStatSets {get; set;}
         public DbSet<Race> MerpRaces {get; set;}
     }
 }   

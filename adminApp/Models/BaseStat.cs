@@ -7,15 +7,25 @@ public class BaseStat : StatView
    {  
        [Key]
        public int Id { get; set; }  
-       public bool Enabled { get; set; }
-       public bool EnabledInWeb { get; set; } 
    }  
 
 public class StatView 
     {
-        public Guid? EId { get; set; } 
-        public string Name { get; set; }
-        public string Abbr { get; set; }
+        public StatAbbr Abbr { get; set; }
         public int Value { get; set; }
        
     }
+
+public enum StatAbbr {
+    St,
+    Co,
+    Ag,
+    In,
+    Ig,
+    Pr,
+    Ap,
+    Ess,
+    Chn,
+    Pos,
+    Dis
+}

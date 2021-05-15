@@ -16,6 +16,23 @@ public class RaceView
     {
         public Guid? EId { get; set; } 
         public string Name { get; set; }
+        public StatSet Stats { get; set; }
+        public RRStatSet RR { get; set; }
+        // public int St { get; set; }
+        // public int Ag { get; set; }
+        // public int Co { get; set; }
+        // public int In { get; set; }
+        
+        // public int Ig { get; set; }
+        
+        // public int Pr { get; set; }
+        // public int Ap { get; set; }
+        // public int Dis  { get; set; }
+        // public int Pos { get; set; }
+        // public int Chn { get; set; }
+        // public int Ess { get; set; }
 
-        public ICollection<BaseStat> Stats { get; set; }
+        public int SpellListChance { get; set; }
+        public int BackgroundOptions { get; set; }
+        public int Frequency { get; set; }
     }

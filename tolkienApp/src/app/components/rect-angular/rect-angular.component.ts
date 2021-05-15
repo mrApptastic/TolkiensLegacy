@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Console } from 'console';
 
 declare function rectAngular(elem, width, height, heading, colour, font): void;
 
@@ -24,7 +23,7 @@ export class RectAngularComponent implements OnInit {
     }
     setTimeout(() => {
       this.rect = new rectAngular(this.canvas, this.width, this.height, this.heading, this.colour, this.font);
-    }, 2000);
+    }, 0);
   }
 
 }
