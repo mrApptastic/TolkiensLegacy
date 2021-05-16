@@ -14,7 +14,119 @@ namespace admin_app {
                     && context.Database.GetPendingMigrations().Count() == 0
                     && context.MerpRaces.Count() == 0
                     && context.MerpStats.Count() == 0) {
+                #region Deities
+                if (context.MerpDeities.Count() == 0) {
+                    context.MerpDeities.AddRange(
+                        new Deity() {
+                            Enabled = true,
+                            EnabledInWeb = true,
+                            EId = Guid.NewGuid(),
+                            Name = "Manwë",
+                            Description = "King of the Valar. Wind lord. Master of the Air and Weather."
+                        },
+                        new Deity() {
+                            Enabled = true,
+                            EnabledInWeb = true,
+                            EId = Guid.NewGuid(),
+                            Name = "Varda",
+                            Description = "Queen of the Valar. Lady of the Stars. Spirit of Light. Also called Elbereth or Elentári."
+                        },
+                        new Deity() {
+                            Enabled = true,
+                            EnabledInWeb = true,
+                            EId = Guid.NewGuid(),
+                            Name = "Ulmo",
+                            Description = "Ocean Lord. Master of the Waters."
+                        },
+                        new Deity() {
+                            Enabled = true,
+                            EnabledInWeb = true,
+                            EId = Guid.NewGuid(),
+                            Name = "Aulë",
+                            Description = "The Smith. Master of the Earth. Lord of Craft. Maker of Mountains. Maker of Dwarves. Also called Mahal."
+                        },
+                        new Deity() {
+                            Enabled = true,
+                            EnabledInWeb = true,
+                            EId = Guid.NewGuid(),
+                            Name = "Yavanna",
+                            Description = "Nourisher. Mistress of the Earth. Giver of fruits. Keeperr of Plants. Also called Kementári"
+                        },
+                        new Deity() {
+                            Enabled = true,
+                            EnabledInWeb = true,
+                            EId = Guid.NewGuid(),
+                            Name = "Námo",
+                            Description = ""
+                        },
+                        new Deity() {
+                            Enabled = true,
+                            EnabledInWeb = true,
+                            EId = Guid.NewGuid(),
+                            Name = "Nienna",
+                            Description = ""
+                        },
+                        new Deity() {
+                            Enabled = true,
+                            EnabledInWeb = true,
+                            EId = Guid.NewGuid(),
+                            Name = "Orome",
+                            Description = ""
+                        },
+                        new Deity() {
+                            Enabled = true,
+                            EnabledInWeb = true,
+                            EId = Guid.NewGuid(),
+                            Name = "Morgoth",
+                            Description = ""
+                        },
+                        new Deity() {
+                            Enabled = true,
+                            EnabledInWeb = true,
+                            EId = Guid.NewGuid(),
+                            Name = "Vána",
+                            Description = ""
+                        },
+                        new Deity() {
+                            Enabled = true,
+                            EnabledInWeb = true,
+                            EId = Guid.NewGuid(),
+                            Name = "Lessa",
+                            Description = ""
+                        },
+                        new Deity() {
+                            Enabled = true,
+                            EnabledInWeb = true,
+                            EId = Guid.NewGuid(),
+                            Name = "Irmo",
+                            Description = ""
+                        },
+                        new Deity() {
+                            Enabled = true,
+                            EnabledInWeb = true,
+                            EId = Guid.NewGuid(),
+                            Name = "Lórien",
+                            Description = ""
+                        },
+                        new Deity() {
+                            Enabled = true,
+                            EnabledInWeb = true,
+                            EId = Guid.NewGuid(),
+                            Name = "Estë",
+                            Description = "Healer"
+                        },
+                        new Deity() {
+                            Enabled = true,
+                            EnabledInWeb = true,
+                            EId = Guid.NewGuid(),
+                            Name = "Vairë",
+                            Description = "Weaver of Fate, wife of Mandos"
+                        }
+                    );
+                }
+                #endregion
                 #region Languages  
+
                 var Adunaic = new Language() {
                     Enabled = true,
                     EnabledInWeb = true,
@@ -78,40 +190,7 @@ namespace admin_app {
                     Name = "Westron"
                 };
 
-                // if (context.MerpLanguages.Count() == 0) {
-                //     context.MerpLanguages.AddRange(
-                //         new Language() {
-                //             Enabled = true,
-                //             EnabledInWeb = true,
-                //             EId = Guid.NewGuid(),
-                //             Name = "Adunaic"
-                //         },
-                //         new Language() {
-                //             Enabled = true,
-                //             EnabledInWeb = true,
-                //             EId = Guid.NewGuid(),
-                //             Name = "Adunaic"
-                //         },
-                //         new Language() {
-                //             Enabled = true,
-                //             EnabledInWeb = true,
-                //             EId = Guid.NewGuid(),
-                //             Name = "Adunaic"
-                //         },
-                //         new Language() {
-                //             Enabled = true,
-                //             EnabledInWeb = true,
-                //             EId = Guid.NewGuid(),
-                //             Name = "Adunaic"
-                //         },
-                //         new Language() {
-                //             Enabled = true,
-                //             EnabledInWeb = true,
-                //             EId = Guid.NewGuid(),
-                //             Name = "Adunaic"
-                //         }
-                //     );
-                // }
+
                     // var strength = new BaseStat {
                     //     Name = "Strength"
                     // };
@@ -134,6 +213,88 @@ namespace admin_app {
                     //     Name = "Appearance"
                     // };
                     #endregion
+                #region Skills
+                    #region MovementSkills
+                var MovementSkills = new SkillCategory() {
+                    Enabled = true,
+                    EnabledInWeb = true,
+                    EId = Guid.NewGuid(),
+                    Name = "Movement and maneuver",
+                    SortOrder = 0
+                };
+                var NoArmor = new Skill() {
+                    Enabled = true,
+                    EnabledInWeb = true,
+                    EId = Guid.NewGuid(),
+                    Name = "No Armor",
+                    Category = MovementSkills,
+                    SortOrder = 0
+                };
+                    #endregion
+                var WeaponSkills = new SkillCategory() {
+                    Enabled = true,
+                    EnabledInWeb = true,
+                    EId = Guid.NewGuid(),
+                    Name = "Weapon skills",
+                    SortOrder = 5
+                };
+                var GeneralSkills = new SkillCategory() {
+                    Enabled = true,
+                    EnabledInWeb = true,
+                    EId = Guid.NewGuid(),
+                    Name = "General skills",
+                    SortOrder = 10
+                };
+                var SubterfugeSkills = new SkillCategory() {
+                    Enabled = true,
+                    EnabledInWeb = true,
+                    EId = Guid.NewGuid(),
+                    Name = "Subterfuge skills",
+                    SortOrder = 15
+                };
+                var MagicalSkills = new SkillCategory() {
+                    Enabled = true,
+                    EnabledInWeb = true,
+                    EId = Guid.NewGuid(),
+                    Name = "Subterfuge skills",
+                    SortOrder = 20
+                };
+                var BodyDevelopment = new SkillCategory() {
+                    Enabled = true,
+                    EnabledInWeb = true,
+                    EId = Guid.NewGuid(),
+                    Name = "Body development",
+                    SortOrder = 25
+                };
+                var Bonuses = new SkillCategory() {
+                    Enabled = true,
+                    EnabledInWeb = true,
+                    EId = Guid.NewGuid(),
+                    Name = "Misc. skills and bonuses",
+                    SortOrder = 30
+                };
+                var SecondarySkills = new SkillCategory() {
+                    Enabled = true,
+                    EnabledInWeb = true,
+                    EId = Guid.NewGuid(),
+                    Name = "Secondary Skills",
+                    SortOrder = 35
+                };
+                var Languages = new SkillCategory() {
+                    Enabled = true,
+                    EnabledInWeb = false,
+                    EId = Guid.NewGuid(),
+                    Name = "Languages",
+                    SortOrder = 40
+                };
+                var SpellLists = new SkillCategory() {
+                    Enabled = true,
+                    EnabledInWeb = false,
+                    EId = Guid.NewGuid(),
+                    Name = "Spell Lists",
+                    SortOrder = 45
+                };
+                #endregion
                 #region Races      
                     #region Hobbit  
                      

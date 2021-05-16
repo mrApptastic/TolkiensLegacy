@@ -16,5 +16,8 @@ public class SkillView
     {
         public Guid? EId { get; set; } 
         public string Name { get; set; }
+        public SkillCategory Category { get; set; }
+        public String RankValue { get; set; }
+         public int MaxRanks { get; set; }
         public int? SortOrder { get; set; }
     }

@@ -12,9 +12,8 @@ public class Race : RaceView
        public bool EnabledInWeb { get; set; } 
    }  
 
-public class RaceView 
+public class RaceView : RaceDescription
     {
-        public Guid? EId { get; set; } 
         public string Name { get; set; }
         public StatSet Stats { get; set; }
         public RRStatSet RR { get; set; }
@@ -38,4 +37,10 @@ public class RaceView
         public int ExtraLanguageRanks { get; set; }
         public int BackgroundOptions { get; set; }
         public int Frequency { get; set; }
+    }
+
+    public class RaceDescription 
+    {
+        public Guid? EId { get; set; } 
+        public string Description { get; set; }
     }

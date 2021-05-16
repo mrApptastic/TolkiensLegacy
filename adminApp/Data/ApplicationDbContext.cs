@@ -21,6 +21,9 @@ namespace admin_app.Data
         public DbSet<StatSet> MerpStatSets {get; set;}
         public DbSet<Race> MerpRaces {get; set;}
         public DbSet<Language> MerpLanguages { get; set; }
+        public DbSet<Deity> MerpDeities { get; set; }
+        public DbSet<SkillCategory> MerpSkillCategories { get; set; }
+        public DbSet<Skill> MerpSkills { get; set; }
     }
 }   
 

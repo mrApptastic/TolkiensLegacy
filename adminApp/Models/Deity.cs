@@ -4,7 +4,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class SkillCategory : SkillCategoryView
+public class Deity : DeityView
    {  
        [Key]
        public int Id { get; set; }  
@@ -12,10 +12,9 @@ public class SkillCategory : SkillCategoryView
        public bool EnabledInWeb { get; set; } 
    }  
 
-public class SkillCategoryView 
+public class DeityView 
     {
         public Guid? EId { get; set; } 
         public string Name { get; set; }
-        public int? SortOrder { get; set; }
-
+        public string Description { get; set; }
     }
