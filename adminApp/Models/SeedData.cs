@@ -14,7 +14,104 @@ namespace admin_app {
                     && context.Database.GetPendingMigrations().Count() == 0
                     && context.MerpRaces.Count() == 0
                     && context.MerpStats.Count() == 0) {
+                #region Languages  
+                var Adunaic = new Language() {
+                    Enabled = true,
+                    EnabledInWeb = true,
+                    EId = Guid.NewGuid(),
+                    Name = "Adûnaic"
+                };
 
+                var Apysaic = new Language() {
+                    Enabled = true,
+                    EnabledInWeb = true,
+                    EId = Guid.NewGuid(),
+                    Name = "Apysaic"
+                };
+
+                var Atliduk = new Language() {
+                    Enabled = true,
+                    EnabledInWeb = true,
+                    EId = Guid.NewGuid(),
+                    Name = "Atliduk"
+                };
+
+                var Kuduk = new Language() {
+                    Enabled = true,
+                    EnabledInWeb = true,
+                    EId = Guid.NewGuid(),
+                    Name = "Kuduk"
+                };
+
+                var Khuzdul = new Language() {
+                    Enabled = true,
+                    EnabledInWeb = true,
+                    EId = Guid.NewGuid(),
+                    Name = "Khuzdul"
+                };
+
+                var Labba = new Language() {
+                    Enabled = true,
+                    EnabledInWeb = true,
+                    EId = Guid.NewGuid(),
+                    Name = "Labba"
+                };
+
+                var Morbeth = new Language() {
+                    Enabled = true,
+                    EnabledInWeb = true,
+                    EId = Guid.NewGuid(),
+                    Name = "Morbeth"
+                };
+
+                var Umitic = new Language() {
+                    Enabled = true,
+                    EnabledInWeb = true,
+                    EId = Guid.NewGuid(),
+                    Name = "Umitic"
+                };
+
+                var Westron = new Language() {
+                    Enabled = true,
+                    EnabledInWeb = true,
+                    EId = Guid.NewGuid(),
+                    Name = "Westron"
+                };
+
+                // if (context.MerpLanguages.Count() == 0) {
+                //     context.MerpLanguages.AddRange(
+                //         new Language() {
+                //             Enabled = true,
+                //             EnabledInWeb = true,
+                //             EId = Guid.NewGuid(),
+                //             Name = "Adunaic"
+                //         },
+                //         new Language() {
+                //             Enabled = true,
+                //             EnabledInWeb = true,
+                //             EId = Guid.NewGuid(),
+                //             Name = "Adunaic"
+                //         },
+                //         new Language() {
+                //             Enabled = true,
+                //             EnabledInWeb = true,
+                //             EId = Guid.NewGuid(),
+                //             Name = "Adunaic"
+                //         },
+                //         new Language() {
+                //             Enabled = true,
+                //             EnabledInWeb = true,
+                //             EId = Guid.NewGuid(),
+                //             Name = "Adunaic"
+                //         },
+                //         new Language() {
+                //             Enabled = true,
+                //             EnabledInWeb = true,
+                //             EId = Guid.NewGuid(),
+                //             Name = "Adunaic"
+                //         }
+                //     );
+                // }
                     // var strength = new BaseStat {
                     //     Name = "Strength"
                     // };
@@ -36,7 +133,10 @@ namespace admin_app {
                     // var appearance = new BaseStat {
                     //     Name = "Appearance"
                     // };
-                        
+                    #endregion
+                #region Races      
+                    #region Hobbit  
+                     
                     context.MerpRaces.AddRange(
                         new Race {
                             EId = Guid.NewGuid(),
@@ -91,11 +191,24 @@ namespace admin_app {
                                     Value = 15
                                 },
                             },
+                            Languages = new List<RaceLanguage>() { 
+                                new RaceLanguage() {
+                                    Language = Kuduk,
+                                    Rank = LanguageRank.Fluent
+                                },
+                                new RaceLanguage() {
+                                    Language = Westron,
+                                    Rank = LanguageRank.Fluent
+                                }
+                            },
                             SpellListChance = 3,
+                            ExtraLanguageRanks = 3,
                             BackgroundOptions = 5,
                             Frequency = 30
                             // Stats = new List<BaseStat>() {strength, agility, constitution, intuition, intelligence, presence, appearance}
                         },
+                        #endregion
+                    #region Umli 
                         new Race {
                             EId = Guid.NewGuid(),
                             Enabled = true,
@@ -149,12 +262,33 @@ namespace admin_app {
                                     Value = 5
                                 },
                             },
+                            Languages = new List<RaceLanguage>() { 
+                                new RaceLanguage() {
+                                    Language = Khuzdul,
+                                    Rank = LanguageRank.Simple
+                                },
+                                new RaceLanguage() {
+                                    Language = Labba,
+                                    Rank = LanguageRank.Basic
+                                },
+                                new RaceLanguage() {
+                                    Language = Umitic,
+                                    Rank = LanguageRank.Fluent
+                                },
+                                new RaceLanguage() {
+                                    Language = Westron,
+                                    Rank = LanguageRank.Basic
+                                }
+                            },
                             SpellListChance = 5,
+                            ExtraLanguageRanks = 3,
                             BackgroundOptions = 4,
                             Frequency = 20
-                        });
+                        }
+                        #endregion
+                        );                        
                     };                   
-
+                #endregion
 
                 context.SaveChanges();
             }

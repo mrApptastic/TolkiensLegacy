@@ -32,7 +32,10 @@ public class RaceView
         // public int Chn { get; set; }
         // public int Ess { get; set; }
 
+        public ICollection<RaceLanguage> Languages { get; set; }
+
         public int SpellListChance { get; set; }
+        public int ExtraLanguageRanks { get; set; }
         public int BackgroundOptions { get; set; }
         public int Frequency { get; set; }
     }

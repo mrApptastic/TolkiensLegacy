@@ -16,15 +16,13 @@ public class LanguageView
     {
         public Guid? EId { get; set; } 
         public string Name { get; set; }
-        public LanguageRank Rank { get; set; }
-        public int? SortOrder { get; set; }
     }
 
 public enum LanguageRank {
-    Simple,
-    Basic,
-    Native,
-    Literate,
-    Fluent
+    Simple = 1,
+    Basic = 2,
+    Native = 3,
+    Literate = 4,
+    Fluent = 5
 
 }
