@@ -15,8 +15,10 @@ public class Race : RaceView
 public class RaceView : RaceDescription
     {
         public string Name { get; set; }
-        public StatSet Stats { get; set; }
-        public RRStatSet RR { get; set; }
+        public ICollection<RaceStat> Stats { get; set; }
+
+        public ICollection<RaceRR> RRs { get; set; }
+        // public RRStatSet RR { get; set; }
         // public int St { get; set; }
         // public int Ag { get; set; }
         // public int Co { get; set; }
@@ -31,6 +33,7 @@ public class RaceView : RaceDescription
         // public int Chn { get; set; }
         // public int Ess { get; set; }
 
+        public ICollection<RaceSkill> Skills { get; set; }
         public ICollection<RaceLanguage> Languages { get; set; }
 
         public int SpellListChance { get; set; }
