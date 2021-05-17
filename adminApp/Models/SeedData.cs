@@ -744,6 +744,7 @@ namespace admin_app {
                     SortOrder = 40
                 };
                     #endregion
+                    #region SecondarySkills
                 var SecondarySkills = new SkillCategory() {
                     Enabled = true,
                     EnabledInWeb = true,
@@ -765,6 +766,7 @@ namespace admin_app {
                 //     Name = "Spell Lists",
                 //     SortOrder = 45
                 // };
+                    #endregion
                 #endregion
                 #region Races      
                     #region Hobbit  
