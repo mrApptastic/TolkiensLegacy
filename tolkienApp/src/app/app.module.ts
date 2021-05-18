@@ -7,12 +7,14 @@ import { CharacterGeneratorModule } from './modules/character-generator/characte
 import { MrMr2Module } from 'mr-mr2';
 import { RectAngularComponent } from './components/rect-angular/rect-angular.component';
 import { CaptainCanvasComponent } from './components/captain-canvas/captain-canvas.component';
+import { ImageCropperComponent } from './components/image-cropper/image-cropper.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RectAngularComponent,
-    CaptainCanvasComponent
+    CaptainCanvasComponent,
+    ImageCropperComponent
   ],
   imports: [
     BrowserModule,
