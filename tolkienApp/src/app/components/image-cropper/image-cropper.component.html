@@ -56,4 +56,8 @@
   </div>
   </div>
   </div> -->
-  <input [hidden]="true" type='file' [id]="imgInput" (change)="upload()" />
+  <!-- <input [hidden]="true" type='file' [id]="imgInput" (change)="upload()" /> -->
+
+<form class="imageForm" style="display: none;">
+  <input #fileUploader [hidden]="true" [id]="imgInput" name="imageFile" type="file" (change)="upload()" />
+</form>
