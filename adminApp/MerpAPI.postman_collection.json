@@ -1,10 +1,288 @@
 {
 	"info": {
 		"_postman_id": "b019c221-dc79-41f9-ad23-854df8690ae8",
-		"name": "Merp API",
+		"name": "MerpAPI",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
-		
+		{
+			"name": "Local",
+			"item": [
+				{
+					"name": "Open",
+					"item": [
+						{
+							"name": "Race List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:5001/api/open/racelist?search=hobbit&page=1&pagesize=6",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"open",
+										"racelist"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "hobbit"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pagesize",
+											"value": "6"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Language List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:5001/api/open/languagelist?search=quenya&page=1&pagesize=6",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"open",
+										"languagelist"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "quenya"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pagesize",
+											"value": "6"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deity List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:5001/api/open/deitylist?search=ulmo&page=1&pagesize=6",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"open",
+										"deitylist"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "ulmo"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pagesize",
+											"value": "6"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Race",
+					"item": [
+						{
+							"name": "Get List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:5001/api/race?search=hobbit",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"race"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "hobbit"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get By Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:5001/api/race/c24a6ea2-e97e-4c29-9056-4cc279050a7c",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"race",
+										"c24a6ea2-e97e-4c29-9056-4cc279050a7c"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get New",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:5001/api/race/new",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"race",
+										"new"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"stats\": null,\r\n    \"skills\": null,\r\n    \"languages\": null,\r\n    \"spellListChance\": 1,\r\n    \"extraLanguageRanks\": 2,\r\n    \"backgroundOptions\": 2,\r\n    \"frequency\": 10,\r\n    \"eId\": null,\r\n    \"name\": \"Green Gratar\",\r\n    \"description\": \"Green froggy fellow\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:5001/api/race?useforweb=true",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"race"
+									],
+									"query": [
+										{
+											"key": "useforweb",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"stats\": null,\r\n    \"skills\": null,\r\n    \"languages\": null,\r\n    \"spellListChance\": 1,\r\n    \"extraLanguageRanks\": 2,\r\n    \"backgroundOptions\": 2,\r\n    \"frequency\": 10,\r\n    \"eId\": \"2c591b27-ef8f-4dbb-ac37-9655b2411dc2\",\r\n    \"name\": \"Green Gratar\",\r\n    \"description\": \"Green froggy fellow\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:5001/api/race?useforweb=true",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"race"
+									],
+									"query": [
+										{
+											"key": "useforweb",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:5001/api/race/c24a6ea2-e97e-4c29-9056-4cc279050a7c",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"race",
+										"c24a6ea2-e97e-4c29-9056-4cc279050a7c"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
 	]
 }

@@ -262,34 +262,6 @@ namespace admin_app {
                     Name = "Appearance",
                     Abbr = "AP"
                 };
-                var Essence = new BaseStat() {
-                    Enabled = true,
-                    EnabledInWeb = true,
-                    EId = Guid.NewGuid(),
-                    Name = "Essence",
-                    Abbr = "ESS"
-                };
-                var Channeling = new BaseStat() {
-                    Enabled = true,
-                    EnabledInWeb = true,
-                    EId = Guid.NewGuid(),
-                    Name = "Channeling",
-                    Abbr = "CHN"
-                };
-                var Poison = new BaseStat() {
-                    Enabled = true,
-                    EnabledInWeb = true,
-                    EId = Guid.NewGuid(),
-                    Name = "Poison",
-                    Abbr = "POS"
-                };
-                var Disease = new BaseStat() {
-                    Enabled = true,
-                    EnabledInWeb = true,
-                    EId = Guid.NewGuid(),
-                    Name = "Disease",
-                    Abbr = "DIS"
-                };
                 #endregion
                 #region Skills
                     #region MovementSkills
@@ -504,7 +476,7 @@ namespace admin_app {
                     Enabled = true,
                     EnabledInWeb = true,
                     EId = Guid.NewGuid(),
-                    Name = "1-H Edged",
+                    Name = "Track",
                     Category = GeneralSkills,
                     Stat = new SkillStat() {
                         Stat = Intellligence
@@ -807,24 +779,24 @@ namespace admin_app {
                                     Value = 0
                                 }
                             },
-                            RRs = new List<RaceRR>() {
-                                new RaceRR() {
-                                    Stat = Essence,
-                                    Value = 50
-                                },
-                                new RaceRR() {
-                                    Stat = Channeling,
-                                    Value = 20
-                                },
-                                new RaceRR() {
-                                    Stat = Poison,
-                                    Value = 30
-                                },
-                                new RaceRR() {
-                                    Stat = Disease,
-                                    Value = 15
-                                }
-                            },
+                            // RRs = new List<RaceRR>() {
+                            //     new RaceRR() {
+                            //         Stat = Essence,
+                            //         Value = 50
+                            //     },
+                            //     new RaceRR() {
+                            //         Stat = Channeling,
+                            //         Value = 20
+                            //     },
+                            //     new RaceRR() {
+                            //         Stat = Poison,
+                            //         Value = 30
+                            //     },
+                            //     new RaceRR() {
+                            //         Stat = Disease,
+                            //         Value = 15
+                            //     }
+                            // },
                             // Stats = new StatSet() {
                             //     Strength = new BaseStat {
                             //         Abbr = StatAbbr.St,
@@ -898,6 +870,136 @@ namespace admin_app {
                                     Ranks = 0,
                                     Bonus = 0,
                                     Skill = Plate
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = OneHandEdged
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = OneHandConcussion
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = TwoHanded
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = Thrown
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = Missile
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = PoleArms
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = Climb
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = Ride
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = Swim
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = Track
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = Ambush
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = StalkHide
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = PickLock
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = DisarmTrap
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = ReadRunes
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = UseItems
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = DirectedSpells
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = Perception
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = BodyDevelopment
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = BaseSpells
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = Leadership
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = DefensiveBonus
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 50,
+                                    Skill = EssenceRR
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 20,
+                                    Skill = ChannelingRR
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 30,
+                                    Skill = PoisonRR
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 15,
+                                    Skill = DiseaseRR
                                 }
                             },
                             Languages = new List<RaceLanguage>() { 
@@ -953,24 +1055,24 @@ namespace admin_app {
                                     Value = 0
                                 }
                             },
-                            RRs = new List<RaceRR>() {
-                                new RaceRR() {
-                                    Stat = Essence,
-                                    Value = 20
-                                },
-                                new RaceRR() {
-                                    Stat = Channeling,
-                                    Value = 0
-                                },
-                                new RaceRR() {
-                                    Stat = Poison,
-                                    Value = 5
-                                },
-                                new RaceRR() {
-                                    Stat = Disease,
-                                    Value = 5
-                                }
-                            },
+                            // RRs = new List<RaceRR>() {
+                            //     new RaceRR() {
+                            //         Stat = Essence,
+                            //         Value = 20
+                            //     },
+                            //     new RaceRR() {
+                            //         Stat = Channeling,
+                            //         Value = 0
+                            //     },
+                            //     new RaceRR() {
+                            //         Stat = Poison,
+                            //         Value = 5
+                            //     },
+                            //     new RaceRR() {
+                            //         Stat = Disease,
+                            //         Value = 5
+                            //     }
+                            // },
                             // Stats = new StatSet() {
                             //     Strength = new BaseStat {
                             //         Abbr = StatAbbr.St,
@@ -1019,7 +1121,7 @@ namespace admin_app {
                             //         Value = 5
                             //     },
                             // },
-                            Skills = new List<RaceSkill>() {
+                Skills = new List<RaceSkill>() {
                                 new RaceSkill() {
                                     Ranks = 1,
                                     Bonus = 0,
@@ -1044,6 +1146,136 @@ namespace admin_app {
                                     Ranks = 0,
                                     Bonus = 0,
                                     Skill = Plate
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = OneHandEdged
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = OneHandConcussion
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = TwoHanded
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = Thrown
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = Missile
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = PoleArms
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = Climb
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = Ride
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = Swim
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = Track
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = Ambush
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = StalkHide
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = PickLock
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = DisarmTrap
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = ReadRunes
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = UseItems
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = DirectedSpells
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = Perception
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = BodyDevelopment
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = BaseSpells
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = Leadership
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = DefensiveBonus
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 20,
+                                    Skill = EssenceRR
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 0,
+                                    Skill = ChannelingRR
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 5,
+                                    Skill = PoisonRR
+                                },
+                                new RaceSkill() {
+                                    Ranks = 0,
+                                    Bonus = 5,
+                                    Skill = DiseaseRR
                                 }
                             },
                             Languages = new List<RaceLanguage>() { 

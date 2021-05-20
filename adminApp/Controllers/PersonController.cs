@@ -31,7 +31,11 @@ namespace admin_app.Controllers
         public async Task<ActionResult<IEnumerable<Race>>> Get()
         {
             // Define a LINQ query
-            var personQuery = from p in _context.MerpRaces select p;
+            var personQuery = from p in _context.MerpRaces
+                                        .Include(x => x.Languages)
+                                        .Include(x => x.Skills).ThenInclude(s => s.Skill)
+                                        .Include(x => x.Stats).ThenInclude(s => s.Stat)
+                                        select p;
             
             return await personQuery.ToListAsync();
         }

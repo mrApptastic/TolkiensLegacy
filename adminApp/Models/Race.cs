@@ -14,10 +14,9 @@ public class Race : RaceView
 
 public class RaceView : RaceDescription
     {
-        public string Name { get; set; }
         public ICollection<RaceStat> Stats { get; set; }
 
-        public ICollection<RaceRR> RRs { get; set; }
+        // public ICollection<RaceRR> RRs { get; set; }
         // public RRStatSet RR { get; set; }
         // public int St { get; set; }
         // public int Ag { get; set; }
@@ -45,5 +44,7 @@ public class RaceView : RaceDescription
     public class RaceDescription 
     {
         public Guid? EId { get; set; } 
+        
+        public string Name { get; set; }
         public string Description { get; set; }
     }
