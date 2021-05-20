@@ -30,11 +30,13 @@ namespace admin_app.Controllers
         {
             var query = _context.MerpRaces.Where(x => x.Enabled).OrderBy(x => x.Name).AsQueryable();
 
-            var count = query.Count();
+
 
             if (search != null) {
                 query = query.Where(x => x.Name.ToLower().Contains(search)).AsQueryable();
             }
+
+            int count = query.Count();
 
             if (page.HasValue && pagesize.HasValue) {
                 int take = (int)pagesize;
@@ -65,11 +67,11 @@ namespace admin_app.Controllers
         {
             var query = _context.MerpLanguages.Where(x => x.Enabled).OrderBy(x => x.Name).AsQueryable();
 
-            var count = query.Count();
-
             if (search != null) {
                 query = query.Where(x => x.Name.ToLower().Contains(search)).AsQueryable();
             }
+
+            int count = query.Count();
 
             if (page.HasValue && pagesize.HasValue) {
                 int take = (int)pagesize;
@@ -100,11 +102,11 @@ namespace admin_app.Controllers
         {
             var query = _context.MerpDeities.Where(x => x.Enabled).OrderBy(x => x.Name).AsQueryable();
 
-            var count = query.Count();
-
             if (search != null) {
                 query = query.Where(x => x.Name.ToLower().Contains(search)).AsQueryable();
             }
+
+            int count = query.Count();
 
             if (page.HasValue && pagesize.HasValue) {
                 int take = (int)pagesize;
