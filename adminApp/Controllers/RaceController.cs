@@ -9,10 +9,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using admin_app.Data;
 using admin_app.Models;
+using admin_app.Helpers;
 
 namespace admin_app.Controllers
 {
-    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class RaceController : ControllerBase
@@ -41,7 +41,7 @@ namespace admin_app.Controllers
             var views = new List<RaceView>();
 
             foreach (var entity in entities) {
-                views.Add(MapToViewModel(entity));
+                views.Add(MappingHelper.MapRaceToViewModel(entity));
             }
 
             return Ok(views);
@@ -56,13 +56,13 @@ namespace admin_app.Controllers
                 throw new Exception("The requested entity could not be found in the database");
             }
 
-            return Ok(MapToViewModel(entity));
+            return Ok(MappingHelper.MapRaceToViewModel(entity));
         }
 
         [HttpGet("new")]
         public ActionResult<RaceView> New()
         {
-            return Ok(MapToViewModel(new Race()));
+            return Ok(MappingHelper.MapRaceToViewModel(new Race()));
         }
 
         [HttpPost]
@@ -77,7 +77,7 @@ namespace admin_app.Controllers
                 
                 await _context.SaveChangesAsync();
                 
-                return Ok(MapToViewModel(race));
+                return Ok(MappingHelper.MapRaceToViewModel(race));
             } catch (Exception e) {
                 throw e;            
             }    
@@ -103,7 +103,7 @@ namespace admin_app.Controllers
 
                 await _context.SaveChangesAsync();
 
-                return Ok(MapToViewModel(entity));
+                return Ok(MappingHelper.MapRaceToViewModel(entity));
             } catch (Exception e) {
                 throw e;            
             }    
@@ -129,19 +129,6 @@ namespace admin_app.Controllers
             } 
         }
 
-        private RaceView MapToViewModel (Race race) {
-            return new RaceView() {
-                Name = race.Name,
-                Stats = race.Stats,
-                Skills = race.Skills,
-                Languages = race.Languages,
-                SpellListChance = race.SpellListChance,
-                ExtraLanguageRanks = race.ExtraLanguageRanks,
-                BackgroundOptions = race.BackgroundOptions,
-                Frequency = race.Frequency,
-                EId = race.EId,
-                Description = race.Description
-            };
-        }
+
     }
 }

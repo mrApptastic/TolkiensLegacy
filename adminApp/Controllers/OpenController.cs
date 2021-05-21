@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using admin_app.Data;
 using admin_app.Models;
+using admin_app.Helpers;
 
 namespace admin_app.Controllers
 {
@@ -29,8 +30,6 @@ namespace admin_app.Controllers
         public async Task<ActionResult<List<RaceDescription>>> GetRaceList([FromQuery]string search, [FromQuery]int? page, [FromQuery]int? pagesize)
         {
             var query = _context.MerpRaces.Where(x => x.Enabled).OrderBy(x => x.Name).AsQueryable();
-
-
 
             if (search != null) {
                 query = query.Where(x => x.Name.ToLower().Contains(search)).AsQueryable();
@@ -60,6 +59,23 @@ namespace admin_app.Controllers
             Response.Headers.Add("X-Count", count.ToString());            
 
             return Ok(views);
+        }
+
+        [HttpGet("RaceExtended/{id:Guid}")]
+        public async Task<ActionResult<RaceExtended>> GetRaceExtended(Guid id)
+        {
+            var entity = await _context.MerpRaces
+                                .Where(x => x.EId == id)
+                                .Include(x => x.Languages)
+                                .Include(x => x.Skills).ThenInclude(s => s.Skill)
+                                .Include(x => x.Stats).ThenInclude(s => s.Stat)
+                                .FirstOrDefaultAsync();
+
+            if (entity == null) {
+                throw new Exception("The requested entity could not be found in the database");
+            }
+
+            return Ok(MappingHelper.MapRaceToExtendedViewModel(entity));
         }
 
         [HttpGet("LanguageList")]

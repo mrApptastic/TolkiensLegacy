@@ -4,7 +4,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class Race : RaceView
+public class Race : RaceExtended
    {  
        [Key]
        public int Id { get; set; }  
@@ -12,9 +12,16 @@ public class Race : RaceView
        public bool EnabledInWeb { get; set; } 
    }  
 
-public class RaceView : RaceDescription
+public class RaceExtended : RaceView
     {
         public ICollection<RaceStat> Stats { get; set; }
+        public ICollection<RaceSkill> Skills { get; set; }
+        public ICollection<RaceLanguage> Languages { get; set; } 
+    }
+
+public class RaceView : RaceDescription
+    {
+        // public ICollection<RaceStat> Stats { get; set; }
 
         // public ICollection<RaceRR> RRs { get; set; }
         // public RRStatSet RR { get; set; }
@@ -32,8 +39,8 @@ public class RaceView : RaceDescription
         // public int Chn { get; set; }
         // public int Ess { get; set; }
 
-        public ICollection<RaceSkill> Skills { get; set; }
-        public ICollection<RaceLanguage> Languages { get; set; }
+        // public ICollection<RaceSkill> Skills { get; set; }
+        // public ICollection<RaceLanguage> Languages { get; set; }
 
         public int SpellListChance { get; set; }
         public int ExtraLanguageRanks { get; set; }
