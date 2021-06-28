@@ -14,6 +14,7 @@ using admin_app.Helpers;
 namespace admin_app.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("api/[controller]")]
     public class RaceController : ControllerBase
     {

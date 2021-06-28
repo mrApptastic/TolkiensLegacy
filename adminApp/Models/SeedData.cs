@@ -50,7 +50,7 @@ namespace admin_app {
                             EnabledInWeb = true,
                             EId = Guid.NewGuid(),
                             Name = "Yavanna",
-                            Description = "Nourisher. Mistress of the Earth. Giver of fruits. Keeperr of Plants. Also called Kementári"
+                            Description = "Nourisher. Mistress of the Earth. Giver of fruits. Keeper of Plants. Also called Kementári"
                         },
                         new Deity() {
                             Enabled = true,

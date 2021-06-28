@@ -18,6 +18,7 @@ import { ChatComponent } from '@components/chat/chat.component';
 import { AboutComponent } from '@components/about/about.component';
 import { ProductsComponent } from '@components/products/products.component';
 import { StoreComponent } from '@components/store/store.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -35,19 +36,20 @@ import { StoreComponent } from '@components/store/store.component';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    CommonModule,
     HttpClientModule,
     FormsModule,
     ApiAuthorizationModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
-      { path: 'about', component: AboutComponent },
+      { path: 'about', component: AboutComponent, canActivate: [AuthorizeGuard] },
       { path: 'products', component: ProductsComponent },
       { path: 'store', component: StoreComponent },
       { path: 'control', component: ControlRoomComponent },
       { path: 'score-board', component: ScoreBoardComponent },
       { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
+      { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] }
     ])
   ],
   providers: [

@@ -11,6 +11,39 @@
             </h2>
             <p>Founded in 1987 by the Hernandez brothers, our establishment has been serving up rich coffee sourced from artisan farmers in various regions of South and Central America. We are dedicated to travelling the world, finding the best coffee, and bringing back to you here in our cafe.</p>
             <p class="mb-0">We guarantee that you will fall in <em>lust</em> with our decadent blends the moment you walk inside until you finish your last sip. Join us for your daily routine, an outing with friends, or simply just to enjoy some alone time.</p>
+            <div *ngIf="loadingData" class="d-flex justify-content-center">
+              <div class="spinner-border text-primary"></div>
+            </div>
+            {{races | json}}
+            <div *ngIf="!loadingData" class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Spell List Chance</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let race of races">
+                    <td>
+                      <input type="text" [(ngModel)]="race.name" (blur)="saveData(race)" />
+                    </td>
+                    <td>
+                      <input type="text" [(ngModel)]="race.description" (blur)="saveData(race)" />
+                    </td>
+                    <td>
+                      <input type="number" [(ngModel)]="race.spellListChance" (blur)="saveData(race)" />
+                    </td>
+                    <td>
+                      <button (click)="removeData(race.eId)">Delete</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <button (click)="addData()">Add</button>
+            </div>
           </div>
         </div>
       </div>
