@@ -20,8 +20,9 @@ body {
   background-attachment: fixed;
   background-size: 150%;
   background-position: 0% 0%;
-  -webkit-animation : flow 90s ease-in-out infinite;
-  animation: flow 90s ease-in-out infinite;
+  -webkit-animation : flow 180s ease-in-out infinite;
+  animation: flow 180s ease-in-out infinite;
+  animation-timing-function: linear;
 }
 
 @media (max-width: 800px) {
@@ -283,8 +284,8 @@ section.editor {
   padding-bottom: 5rem;
   background-image: url("./assets/media/footer.png");
   color: #fff;
-  animation: walk-on 30s linear infinite;
-  -webkit-animation: walk-on 60s linear infinite;
+  animation: walk-on 120s linear infinite;
+  -webkit-animation: walk-on 120s linear infinite;
 }
 
 .copyright {
