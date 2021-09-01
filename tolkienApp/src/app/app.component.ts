@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { DataService } from './modules/character-generator/services/data.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ export class AppComponent implements OnInit {
   races: any;
   title = 'tolkienApp';
 
-  constructor(private http: HttpClient) {
+  constructor(private data: DataService) {
 
   }
 
@@ -18,12 +19,16 @@ export class AppComponent implements OnInit {
     this.getRaces();
   }
 
-  getRaces(): any {
-    return this.http.get("https://localhost:5001/api/open/raceList").subscribe(x => {
-      this.races = x;
-      console.log(x);
+  getRaces(): void {
+    this.data.getRaces().subscribe(x => {
+      this.races = x?.body;
+      console.log(x?.body);
+      console.log(x.headers.get('X-Count'));
     }, e => {
       console.log(e);
     });
   }
 }
+
+
+
