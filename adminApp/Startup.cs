@@ -36,7 +36,8 @@ namespace admin_app
                 builder =>{
                     builder.AllowAnyOrigin()
                             .AllowAnyMethod()
-                            .AllowAnyHeader();
+                            .AllowAnyHeader()
+                            .WithExposedHeaders("X-Count");
                 });
             });
 
