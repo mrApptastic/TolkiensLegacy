@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { StatService } from '../services/stat.service';
 
 @Pipe({
-  name: 'stat'
+  name: 'stat',
+  standalone: false
 })
 export class StatPipe implements PipeTransform {
   constructor (private statService: StatService) {}

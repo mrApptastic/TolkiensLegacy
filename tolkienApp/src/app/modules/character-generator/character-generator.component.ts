@@ -5,6 +5,7 @@ import { jsPDF } from 'jspdf';
 
 @Component({
   selector: 'app-character-generator',
+  standalone: false,
   templateUrl: './character-generator.component.html',
   styleUrls: ['./character-generator.component.scss']
 })

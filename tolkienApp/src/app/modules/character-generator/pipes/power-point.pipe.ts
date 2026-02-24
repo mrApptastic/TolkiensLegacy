@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { StatService } from '../services/stat.service';
 
 @Pipe({
-  name: 'powerPoint'
+  name: 'powerPoint',
+  standalone: false
 })
 export class PowerPointPipe implements PipeTransform {
 

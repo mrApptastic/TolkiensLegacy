@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { LevelService } from '../services/level.service';
 
 @Pipe({
-  name: 'level'
+  name: 'level',
+  standalone: false
 })
 export class LevelPipe implements PipeTransform {
   constructor (private levelService: LevelService) {}

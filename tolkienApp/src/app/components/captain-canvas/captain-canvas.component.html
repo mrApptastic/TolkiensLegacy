@@ -1,2 +1,18 @@
-<canvas [id]="canvas"></canvas>
-<div [id]="toolBoxId"></div>
+<div class="captain-canvas-container">
+  <canvas #canvasEl
+    [id]="canvasId"
+    (mousedown)="onMouseDown($event)"
+    (mousemove)="onMouseMove($event)"
+    (mouseup)="onMouseUp()"
+    (mouseleave)="onMouseUp()">
+  </canvas>
+  <div class="canvas-tools">
+    <button class="btn btn-sm btn-outline-secondary" (click)="clearCanvas()">Clear</button>
+    <label>Size:
+      <input type="range" min="1" max="20" [value]="3" (input)="setBrushSize($any($event.target).value)" />
+    </label>
+    <label>Color:
+      <input type="color" value="#000000" (input)="setBrushColor($any($event.target).value)" />
+    </label>
+  </div>
+</div>
