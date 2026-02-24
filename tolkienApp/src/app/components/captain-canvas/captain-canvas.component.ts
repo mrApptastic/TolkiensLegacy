@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-declare function captainCanvas(canvas, tools, settings): void;
-declare function mrToolBox(id, settings): void;
+declare const captainCanvas: any;
+declare const mrToolBox: any;
 
 @Component({
   selector: 'app-captain-canvas',
+  standalone: false,
   templateUrl: './captain-canvas.component.html',
   styleUrls: ['./captain-canvas.component.scss']
 })

@@ -3,6 +3,7 @@ import { Validators, FormControl, FormGroup } from "@angular/forms";
 
 @Component({
   selector: 'app-image-cropper',
+  standalone: false,
   templateUrl: './image-cropper.component.html',
   styleUrls: ['./image-cropper.component.scss']
 })
@@ -32,13 +33,16 @@ export class ImageCropperComponent implements OnInit {
       this.canvas = "imageCropper-" + Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
     }
     setTimeout(() => {
-      this.context = document.getElementById(this.canvas)['getContext']('2d');
-      this.context.fillRect(5, 5, 5, 5);
+      const el = document.getElementById(this.canvas!) as HTMLCanvasElement | null;
+      if (el) {
+        this.context = el.getContext('2d');
+        this.context.fillRect(5, 5, 5, 5);
+      }
     }, 0);
   }
 
   openFileDialog(): void {
-    document.getElementById(this.imgInput).click();
+    document.getElementById(this.imgInput)?.click();
   }
 
   upload(): void {

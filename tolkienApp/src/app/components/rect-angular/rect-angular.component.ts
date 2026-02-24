@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-declare function rectAngular(elem, width, height, heading, colour, font): void;
+declare const rectAngular: any;
 
 @Component({
   selector: 'app-rect-angular',
+  standalone: false,
   templateUrl: './rect-angular.component.html',
   styleUrls: ['./rect-angular.component.scss']
 })

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { DataService } from './modules/character-generator/services/data.service';
 
 @Component({
   selector: 'app-root',
+  standalone: false,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
@@ -20,15 +20,12 @@ export class AppComponent implements OnInit {
   }
 
   getRaces(): void {
-    this.data.getRaces().subscribe(x => {
+    this.data.getRaces().subscribe((x: any) => {
       this.races = x?.body;
       console.log(x?.body);
       console.log(x.headers.get('X-Count'));
-    }, e => {
+    }, (e: any) => {
       console.log(e);
     });
   }
 }
-
-
-

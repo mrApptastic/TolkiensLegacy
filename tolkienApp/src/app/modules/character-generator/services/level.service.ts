@@ -31,5 +31,6 @@ export class LevelService {
     } else if (ep < 150000) {
       return 10;
     }
+    return 10;
   }
 }

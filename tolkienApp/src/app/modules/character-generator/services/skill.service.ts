@@ -40,6 +40,7 @@ export class SkillService {
       case 28: return 78;
       case 29: return 79;
       case 30: return 80;
+      default: return 0;
     }
   }
 }
