@@ -1,5 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { Validators, FormControl, FormGroup } from "@angular/forms";
+import { Component, ElementRef, Input, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-image-cropper',
@@ -7,96 +6,70 @@ import { Validators, FormControl, FormGroup } from "@angular/forms";
   templateUrl: './image-cropper.component.html',
   styleUrls: ['./image-cropper.component.scss']
 })
-
-export class ImageCropperComponent implements OnInit {
+export class ImageCropperComponent implements OnInit, AfterViewInit {
   @Input() canvas?: string;
-  @ViewChild("fileUploader") public fileUploader: any;
-  imageForm = new FormGroup({
-    name: new FormControl("", [Validators.required]),
-    file: new FormControl("", [Validators.required]),
-    fileSource: new FormControl("", [Validators.required])
-  });
-  imgInput = "imgInput-" + Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
-  huhu = new Image();
-  draw = false;
-  resizeX = false;
-  resizeY = false;
-  moveCoords = [null, null, null, null];
-  sliding = false;
-  context: any;
-  colours = new Array();
+  @ViewChild('canvasEl', { static: false }) canvasRef!: ElementRef<HTMLCanvasElement>;
+  @ViewChild('fileInput', { static: false }) fileInputRef!: ElementRef<HTMLInputElement>;
+  canvasId: string = 'imageCropper-' + Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
+  private context: CanvasRenderingContext2D | null = null;
+  private image = new Image();
 
   constructor() {}
 
   ngOnInit(): void {
-    if (!this.canvas) {
-      this.canvas = "imageCropper-" + Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
+    if (this.canvas) {
+      this.canvasId = this.canvas;
     }
-    setTimeout(() => {
-      const el = document.getElementById(this.canvas!) as HTMLCanvasElement | null;
-      if (el) {
-        this.context = el.getContext('2d');
-        this.context.fillRect(5, 5, 5, 5);
+  }
+
+  ngAfterViewInit(): void {
+    const el = this.canvasRef?.nativeElement;
+    if (el) {
+      el.width = el.offsetWidth || 300;
+      el.height = el.offsetHeight || 200;
+      this.context = el.getContext('2d');
+      if (this.context) {
+        this.context.fillStyle = '#f0f0f0';
+        this.context.fillRect(0, 0, el.width, el.height);
+        this.context.fillStyle = '#999';
+        this.context.font = '14px sans-serif';
+        this.context.textAlign = 'center';
+        this.context.fillText('Click to upload an image', el.width / 2, el.height / 2);
       }
-    }, 0);
+    }
   }
 
   openFileDialog(): void {
-    document.getElementById(this.imgInput)?.click();
+    this.fileInputRef?.nativeElement?.click();
   }
 
-  upload(): void {
-    const input = document.getElementById(this.imgInput)?.['files'];
-
-    if (input && input.length > 0) {
-      console.log(input[0]);
-    //   const reader = new FileReader();
-    //     reader.onload = (e) => {
-    //     this.huhu.src = e.target.result.toString();
-    //     //       document.getElementById("fileText").value = replaceInvalidCharacters(input.files[0].name.split(".")[0]);
-    //     // document.getElementById('fileDescription').value = input.files[0].name.split(".")[0];
-    //     // document.getElementById("fileType").value = input.files[0].name.split(".")[1];
-    //     // this.context.clearRect(0,0, 200, 200);
-
-    //     }
-    //     setTimeout(this.reDrawImage,50);
-    //     reader.readAsDataURL(input[0]);
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        this.image.src = (e.target?.result as string) || '';
+        this.image.onload = () => this.drawImage();
+      };
+      reader.readAsDataURL(file);
     }
   }
 
-  reDrawImage(): void {
-    var scale = 1;
-    var left = 0;
-    var top = 0;
-    setTimeout(() => {
-      this.context.drawImage(this.huhu,left,top, this.huhu.width*(scale/100), this.huhu.height*(scale/100));
-    }, 0);
+  private drawImage(): void {
+    const el = this.canvasRef?.nativeElement;
+    if (!el || !this.context) { return; }
+
+    // Scale image to fit canvas
+    const scale = Math.min(el.width / this.image.width, el.height / this.image.height);
+    const w = this.image.width * scale;
+    const h = this.image.height * scale;
+    const x = (el.width - w) / 2;
+    const y = (el.height - h) / 2;
+
+    this.context.clearRect(0, 0, el.width, el.height);
+    this.context.fillStyle = '#f0f0f0';
+    this.context.fillRect(0, 0, el.width, el.height);
+    this.context.drawImage(this.image, x, y, w, h);
   }
-
-  // onDialogOKSelected(): void {
-  //   const file = this.img.dataURLtoFile(this.croppedImage); // must be converted to data url
-  //   if (file) {
-
-  //     this.imageForm.patchValue({
-  //       name: file.name,
-  //       file: { file },
-  //       fileSource: file
-  //     });
-
-  //   }
-  // }
-
-  // uploadImage(): void {
-
-  //   const formData = new FormData();
-  //   formData.append("file", this.imageForm.get("fileSource").value);
-
-  //   this.data.upload(formData).subscribe(x => {
-
-  //     }, e => {
-  //       this.error.handleError(e);
-  //     });
-
-  // }
-
 }

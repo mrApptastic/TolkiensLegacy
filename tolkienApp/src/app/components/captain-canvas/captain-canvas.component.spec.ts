@@ -22,4 +22,8 @@ describe('CaptainCanvasComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have a canvas id', () => {
+    expect(component.canvasId).toContain('captainCanvas-');
+  });
 });
